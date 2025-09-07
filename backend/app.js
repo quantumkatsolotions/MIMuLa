@@ -1,6 +1,7 @@
 import express from 'express';
 import userRoute from './routes/user.route.js';
 import authRoute from './routes/auth.route.js';
+import categoryRoute from './routes/category.route.js';
 
 import { PORT } from './config/env.js';
 import connectToDB from './database/mongodb.js';
@@ -17,6 +18,7 @@ app.use(arcjetMiddleware)
 
 app.use('/api/v1/auth', authRoute)
 app.use('/api/v1/users', userRoute);
+app.use('/api/v1/category', categoryRoute)
 
 app.use(errorMiddleWare);
 

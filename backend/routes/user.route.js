@@ -10,6 +10,6 @@ userRouter.get('/', authorize, getUsers)
 
 userRouter.put('/:id',authorize, updateUser)
 
-userRouter.delete('/:id', deleteUser)
+userRouter.delete('/:id', authorize, deleteUser)
 
 export default userRouter;

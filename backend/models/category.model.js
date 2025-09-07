@@ -17,9 +17,10 @@ const categorySchema = new mongoose.Schema({
         trim: true
     },
     userId: {
-        type: String,
-        required: [true, 'User id is required']
-    }
+       type: mongoose.Schema.Types.ObjectId,
+       ref: 'User',
+       required: true,
+     }
 }, { timestamps: true });
 
 const category = mongoose.model('Category', categorySchema);

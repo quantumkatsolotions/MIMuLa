@@ -41,12 +41,11 @@ export const signUp = async (req, res, next) => {
     const accessToken = generateAccessToken(newUser[0]._id);
     const refreshToken = generateRefreshToken(newUser[0]._id);
 
-    // save refresh token in cookie
     res.cookie("refreshToken", refreshToken, {
       httpOnly: true,
-      secure: true, // only over https
+      secure: true, 
       sameSite: "strict",
-      maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
+      maxAge: 7 * 24 * 60 * 60 * 1000, 
     });
 
     await session.commitTransaction();
